@@ -1,7 +1,5 @@
 package com.solvd.parabank;
 
-import com.solvd.configurations.WaiterWrapper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,17 +13,32 @@ public class HomePage extends Page {
     private WebElement usernameInput;
     @FindBy(xpath = "//input[@name = \"password\"]")
     private WebElement passwordInput;
+    @FindBy(xpath = "//input[@type = \"submit\"]")
+    private WebElement logInButton;
+    @FindBy(xpath = "//a[text() = \"Register\"]")
+    private WebElement registerButton;
 
     public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public boolean isHopePageDisplayed() {
-        WaiterWrapper.waitForElementVisible(webDriver, latestNews);
-        return latestNews.isDisplayed();
+    public void logIn(String username, String password) {
+        inputUsername(username);
+        inputPassword(password);
+        logInButton.click();
+
+    }
+
+    public RegisterPage clickRegister() {
+        registerButton.click();
+        return new RegisterPage(webDriver);
     }
 
     private void inputUsername(String username) {
+        usernameInput.sendKeys(username);
+    }
 
+    private void inputPassword(String password) {
+        passwordInput.sendKeys(password);
     }
 }
