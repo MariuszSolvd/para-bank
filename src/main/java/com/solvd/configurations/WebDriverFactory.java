@@ -1,4 +1,4 @@
-package com.solvd.driver;
+package com.solvd.configurations;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

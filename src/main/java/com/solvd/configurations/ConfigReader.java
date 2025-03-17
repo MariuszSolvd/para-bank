@@ -1,4 +1,4 @@
-package com.solvd.driver;
+package com.solvd.configurations;
 
 import java.io.FileInputStream;
 import java.io.IOException;
