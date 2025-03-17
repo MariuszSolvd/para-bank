@@ -18,11 +18,11 @@ public class WaiterWrapper {
         return new WebDriverWait(webDriver, Duration.ofSeconds(timeoutSec));
     }
 
-    public static WebElement waitForElementVisible(WebDriver driver, int timeoutSec, By locator) {
-        return getWait(driver, timeoutSec).until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public static WebElement waitForElementVisible(WebDriver driver, int timeoutSec, WebElement element) {
+        return getWait(driver, timeoutSec).until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static WebElement waitForElementVisible(WebDriver webDriver, By locator) {
-        return getWait(webDriver).until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public static WebElement waitForElementVisible(WebDriver webDriver, WebElement element) {
+        return getWait(webDriver).until(ExpectedConditions.visibilityOf(element));
     }
 }
