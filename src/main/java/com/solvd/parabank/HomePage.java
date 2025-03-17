@@ -15,7 +15,7 @@ public class HomePage extends Page {
     }
 
     public boolean isHopePageDisplayed() {
-        WaiterWrapper.waitForElementVisible(webDriver, 5, latestNews);
+        WaiterWrapper.waitForElementVisible(webDriver, latestNews);
         return webDriver.findElement(latestNews).isDisplayed();
     }
 }
