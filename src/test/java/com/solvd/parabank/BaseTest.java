@@ -1,6 +1,7 @@
 package com.solvd.parabank;
 
-import com.solvd.driver.WebDriverFactory;
+import com.solvd.configurations.ConfigReader;
+import com.solvd.configurations.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -13,6 +14,7 @@ public abstract class BaseTest {
     public void setup() {
         webDriver = WebDriverFactory.createDriver();
         webDriver.manage().window().maximize();
+        webDriver.get(ConfigReader.get("homepage"));
     }
 
     @AfterClass
